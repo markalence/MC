@@ -1,5 +1,6 @@
 package com.example.woofer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,10 +17,11 @@ import android.widget.TextView;
 
 public class AppActivity extends AppCompatActivity {
 
-  // String username = getIntent().getStringExtra("username");
+
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    String username = MainActivity.sUsername;
 
 
     @Override
@@ -129,8 +131,7 @@ public class AppActivity extends AppCompatActivity {
                 case 2: FindFriendFragment f3 = new FindFriendFragment();
                     return f3;
 
-                case 3: ProfileFragment f4 = new ProfileFragment();
-                    return f4;
+
 
 
             }
@@ -142,7 +143,7 @@ public class AppActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 4;
+            return 3;
         }
     }
 }

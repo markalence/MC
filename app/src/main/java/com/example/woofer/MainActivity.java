@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button registerButton;
     Button loginButton;
     String success = "false";
-    String sUsername = "";
+   public static String sUsername = "";
     Context c;
 
 
@@ -57,14 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("StaticFieldLeak") RegisterRequest registerRequest = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/login.php", params) {
                     @Override
                     protected void onPostExecute(String output) {
-                        JSONObject j = null;
-                        try {
-                            j = new JSONObject(output);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
 
                         try {
+                            JSONObject j = new JSONObject(output);
                             success = j.getString("success");
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -76,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
                 registerRequest.execute();
                 if (success.equals("true")) {
-                    System.out.println("YES IM HERE");
                     openApp();
 
                 }
@@ -90,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void openApp() {
 
-        startActivity(new Intent(MainActivity.this, AppActivity.class));
+        Intent intent = new Intent(MainActivity.this, AppActivity.class);
+        intent.putExtra("username", sUsername);
+        startActivity(intent);
 
     }
 

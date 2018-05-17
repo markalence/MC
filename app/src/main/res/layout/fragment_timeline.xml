@@ -7,10 +7,13 @@
     tools:context=".TimelineFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+
+    <ListView
+        android:id="@+id/postView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -18,9 +21,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="#000"
+        app:backgroundTint="#FFE00A0A"
+        android:focusable="true"
         app:elevation="0dp"
-        android:background="#eeeeff"
-        android:src="@drawable/doglogo2" />
+        android:src="@drawable/ic_action_status_pen" />
 
 </FrameLayout>
+
