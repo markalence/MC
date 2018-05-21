@@ -74,8 +74,6 @@ public class FindFriendFragment extends Fragment {
 
                     }
 
-                    System.out.println(commonFriends);
-
                     myListAdapter arrayAdapter = new myListAdapter(getContext(), R.layout.search_tab, foundFriends);
                     lv.setAdapter(arrayAdapter);
                     lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -183,7 +181,6 @@ public class FindFriendFragment extends Fragment {
                         String newS = al.get(i).get(1);
                         al.get(i).set(1, newS + " " + commonFriend);
                         al.remove(j);
-                        System.out.println(al);
 
                     }
 
@@ -244,7 +241,7 @@ public class FindFriendFragment extends Fragment {
                         RegisterRequest add = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriend.php", friendCv) {
                         };
 
-                        System.out.println(friendCv);
+
 
                         add.execute();
                         Toast.makeText(getContext(), "FRIEND ADDED", Toast.LENGTH_SHORT).show();
@@ -264,7 +261,7 @@ public class FindFriendFragment extends Fragment {
 
                         friendCv.put("username",MainActivity.sUsername);
                         friendCv.put("friend",foundFriends.get(position).toString().split(" ")[0]);
-                        System.out.println(friendCv);
+
 
                         RegisterRequest add = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriend.php", friendCv) {
                         };

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button registerButton;
     Button loginButton;
     String success = "false";
-   public static String sUsername = "";
+    public static String sUsername = "";
     Context c;
 
 
@@ -48,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 EditText username = (EditText) findViewById(R.id.username);
                 EditText password = (EditText) findViewById(R.id.password);
 
-                sUsername = username.getText().toString();
+                sUsername = username.getText().toString().toLowerCase();
                 String sPassword = password.getText().toString();
 
-                params.put("username", sUsername);
+                params.put("username", sUsername.toLowerCase());
                 params.put("password", sPassword);
+
 
                 @SuppressLint("StaticFieldLeak") RegisterRequest registerRequest = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/login.php", params) {
                     @Override
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, AppActivity.class);
         intent.putExtra("username", sUsername);
         startActivity(intent);
+        finish();
 
     }
 
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
         intent.putExtra("username", sUsername);
         startActivity(intent);
+        finish();
 
     }
 

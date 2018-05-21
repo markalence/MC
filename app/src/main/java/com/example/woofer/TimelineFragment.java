@@ -132,7 +132,7 @@ public class TimelineFragment extends Fragment {
             protected void onPostExecute(String output) {
                 //super.onPostExecute(output);
                 posts.clear();
-                System.out.println("OUT  " + output);
+
                 if (!output.equals("<br />")){
                     try {
                         JSONArray ja = new JSONArray(output);
@@ -154,7 +154,7 @@ public class TimelineFragment extends Fragment {
             }
 
             else {
-                    System.out.println("empty brah");
+
                 }
 
             }

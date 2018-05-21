@@ -127,8 +127,7 @@ public class SearchFragment extends Fragment {
                             try {
 
                                 ja = new JSONArray(output);
-                                System.out.println("COME ON");
-                                ;
+
                                 for (int i = 0; i < ja.length(); i++) {
                                     JSONObject jo = (JSONObject) ja.get(i);
                                     ArrayList<String> user = new ArrayList<>();
@@ -136,7 +135,6 @@ public class SearchFragment extends Fragment {
                                     String name = (jo.get("name").toString());
                                     String surname = (jo.get("surname").toString());
                                     users.add(username + "  (" + name + " " + surname + ")");
-                                    System.out.println(users);
                                     myListAdapter arrayAdapter = new myListAdapter(getActivity(), R.layout.search_tab, users);
                                     lv.setAdapter(arrayAdapter);
                                     //lv.invalidateViews();
@@ -232,7 +230,6 @@ public class SearchFragment extends Fragment {
                         RegisterRequest add = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriend.php", friendCv) {
                         };
 
-                        System.out.println(friendCv);
 
                         add.execute();
                         Toast.makeText(getContext(), "FRIEND ADDED", Toast.LENGTH_SHORT).show();
@@ -243,7 +240,7 @@ public class SearchFragment extends Fragment {
 
             } else {
 
-                System.out.println(position);
+
                 mainViewHolder = (ViewHolder) convertView.getTag();
                 mainViewHolder.title = (TextView) convertView.findViewById(R.id.heading);
                 mainViewHolder.button = (ImageButton) convertView.findViewById(R.id.addFriend);
@@ -260,7 +257,7 @@ public class SearchFragment extends Fragment {
                         RegisterRequest add = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriend.php", friendCv) {
                         };
 
-                        System.out.println(friendCv + "    OI");
+
                         add.execute();
                         Toast.makeText(getContext(), "FRIEND ADDED", Toast.LENGTH_SHORT).show();
                     }

@@ -118,8 +118,6 @@ public class AppActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            System.out.println(position);
-
             switch (position){
 
                 case 0: TimelineFragment f1 = new TimelineFragment();

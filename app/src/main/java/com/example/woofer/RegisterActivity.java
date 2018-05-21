@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             params.put("name", name);
                             params.put("surname", surname);
-                            params.put("username", username);
+                            params.put("username", username.toLowerCase());
                             params.put("password", pass1);
 
                             @SuppressLint("StaticFieldLeak") RegisterRequest registerRequest = new RegisterRequest(
@@ -70,8 +70,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         Toast.makeText(getBaseContext(), output, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(RegisterActivity.this, AppActivity.class);
-                                        MainActivity.sUsername = username;
+                                        MainActivity.sUsername = username.toLowerCase();
 
+                                        RegisterRequest addPostTable = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addposttable.php", params) {
+                                        };
+
+                                        RegisterRequest addFriendTable = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriendtable.php", params) {
+                                        };
+                                        addPostTable.execute();
+                                        addFriendTable.execute();
 
                                         startActivity(intent);
 
@@ -88,13 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                             registerRequest.execute();
-                            RegisterRequest addPostTable = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addposttable.php", params) {
-                            };
 
-                            RegisterRequest addFriendTable = new RegisterRequest("http://lamp.ms.wits.ac.za/~s1676701/addfriendtable.php", params) {
-                            };
-                            addPostTable.execute();
-                            addFriendTable.execute();
 
 
                         } else {
@@ -132,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             else{
-                System.out.println(c );return false;}
+                return false;}
 
         }
 
